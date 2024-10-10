@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login form</title>
+    <title>LOGIN FORM</title>
 </head>
 <body>
-    <a href="http://127.0.0.1/beta" target="_blank">Go to home</a>
+    
+
+    <center><img src = "images/user_logo.png" width="80"></center>
+    <form name="Login-form" action="backend/signin.php" method="post">
+        <table border="0" align="center">
+            <tr><td><label>email:</td></tr>
+            <tr><td><input type="email" name="email" placeholder="hello@mail.com" required></td></tr>
+            <tr><td><label>password:</td></tr>
+            <tr><td><input type="password" name="passwd" placeholder="************" required></td></tr>
+            <tr><td><button>Login</button></td></tr>
+        </table>
+    </form>
+    <center>
+        <br>
+        <a href="http://127.0.0.1/beta/api/src/forgot_pass_form.html" target="_blank">forgot_password?</a>
+        &nbsp;|&nbsp;
+        <a href="http://127.0.0.1/beta/api/src/register_form.html" target="_blank">Sign up</a>
+    </center>
+    
+    
+
 </body>
 </html>
