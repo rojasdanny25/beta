@@ -1,4 +1,45 @@
 <?php
+    function save_data_supabase($email, $passwd){
+        // supabase database configuration
+        $SUPABASE_URL = 'https://brievbewdyucswgrlece.supabase.co';
+        $SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyaWV2YmV3ZHl1Y3N3Z3JsZWNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA0NzU2OTMsImV4cCI6MjA0NjA1MTY5M30.C1cDvEVdKov6f-WodI2P2m6HdTSygP6hI6rlp96I7os';
+        $url = "$SUPABASE_URL/rest/v1/users/";
+        $data = [
+            'email' => $email,
+            'password' => $passwd,
+
+        ];
+
+        $options = [
+            'http' => [
+                'header'  => [
+                    "Content-type: application/json",
+                    "Authorization: Bearer $SUPABASE_KEY",
+                    "apikey: $SUPABASE_KEY"
+                    ],
+                'method'  => 'POST',
+                'content' => json_encode($data),
+            ],
+        ];
+
+        $context  = stream_context_create($options);
+        $response = file_get_contents($url, false, $context);
+        $data = json_decode($response, true);
+
+        if($response === false) {
+            echo "Error: Unable to save data to Supabase";
+            exit;
+        }
+
+        echo "User has been created" , json_encode($response_data);
+        
+    }
+    
+    
+    
+    
+    
+    
     //DB conection 
     require('../../config/db_connection.php');
     //get data from register
